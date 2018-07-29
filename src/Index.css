@@ -1,0 +1,294 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #555;
+  list-style: none;
+  font-weight: 400;
+  text-transform: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+body {
+  background: linear-gradient(180deg, #e5e5e5, #f6f6f6 15%) no-repeat;
+  min-height: 100vh;
+  padding-bottom: 100px
+}
+
+header {
+  position: relative;
+}
+
+main > header {
+  padding: 30px 0;
+  text-align: center;
+  background-color: #fff;
+}
+
+.app {
+  margin: 0 auto;
+  max-width: 800px;
+  padding-top: 80px;
+}
+
+.btn {
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 3px;
+  padding: 10px 15px;
+  background: #0eafb4;
+  border-bottom: 2px solid #0b797d;
+  transition: background .2s ease-in-out;
+}
+
+.btn:hover {
+  background: #0a9ba0;
+}
+
+.users header {
+  width: 100%;
+  display: table;
+  text-align: right;
+  margin-bottom: 70px;
+}
+
+.users header h1 {
+  text-align: left;
+}
+
+.users header > * {
+  display: table-cell;
+}
+
+.users ul li {
+  width: 100%;
+  display: table;
+  padding: 10px 0;
+  border-bottom: #e5e5e5 solid 2px;
+}
+
+.users ul li * {
+  color: #868c8c;
+  font-size: 14px;
+  font-weight: 600;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.users ul li .collum-1 {
+  width: 80%;
+}
+
+.users ul li .collum-2 {
+  width: 30%;
+}
+
+.users ul li .avatar+.collum-1 {
+  width: 70%;
+}
+
+.users .avatar {
+  width: 50px;
+  height: 50px;
+  line-height: 48px;
+  margin-right: 10px;
+  text-align: center;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: #ccc;
+}
+
+.users ul li .collum-fixed {
+  color: #0e9a9f;
+  font-weight: 700;
+}
+
+/* Formatação Register */
+
+.register {
+  width: 350px;
+  margin: 0 auto;
+}
+
+.register h1 {
+  font-size: 35pt;
+  margin: 0px 0px 50px 0px;
+}
+
+.register ul {
+  display: block;
+  margin: 0 -10px;
+}
+
+.register ul li {
+  color: #555;
+  width: 100%;
+  padding: 0 10px 5px;
+  margin-bottom: 25px;
+  display: inline-block;
+  position: relative;
+}
+
+.register ul li.columns-50 {
+  width: 50%;
+}
+
+.register ul li .input-error {
+  position: absolute;
+  left: 10px;
+  top: 100%;
+  font-size: 12px;
+  font-style: italic;
+  color: red;
+  font-weight: 600;
+}
+
+.register ul li label {
+  display: block;
+  font-size: 10pt;
+  font-weight: bolder;
+}
+
+.register ul li input {
+  width: 100%;
+  display: block;
+  margin-top: 5px;
+  font-weight: bold;
+  padding: 8px 10px;
+  border-radius: 3px;
+  border: 1px solid #12c1c7;
+}
+
+.step {
+  border: none;
+  color: #fff;
+  margin: 10px 0;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 300;
+  padding: 8px 18px;
+  border-radius: 3px;
+  background: #30cf94;
+  display: inline-block;
+}
+
+
+/* Formatação Profile */
+
+.profile {
+  width: 450px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+.profile .foto {
+  width: 200px;
+  height: 200px;
+  margin: 50px 50px;
+  padding: 80px 25px;
+  text-align: center;
+  position: relative;
+  border-radius: 100px;
+  display: inline-block;
+  background-color: #d8d8d8;
+}
+
+
+.profile label {
+  top: 0;
+  left: 0;
+  display: block;
+  width: inherit;
+  height: inherit;
+  font-size: 12pt;
+  padding: inherit;
+  border-radius: 50%;
+  position: absolute;
+  text-align: center;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+
+.profile input {
+  display: none;
+}
+
+.profile .action {
+  padding-right: 80px;
+}
+
+.profile .action a {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.profile .action a:first-child {
+  margin-right: 25px;
+}
+
+.profile .fini {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 300;
+  padding: 10px 30px;
+  border-radius: 3px;
+  background: #30cf94;
+  display: inline-block;
+}
+
+main .show-step {
+  right: 0;
+  top: 50%;
+  position: absolute;
+  display: inline-block;
+  transform: translateY(-50%);
+}
+
+main .show-step:before {
+  top: 50%;
+  content: "";
+  height: 2px;
+  width: 100%;
+  display: block;
+  position: absolute;
+  background: #e3e3e3;
+  transform: translateY(-50%);
+}
+
+main .show-step li {
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  width: 25px;
+  height: 25px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 25px;
+  text-align: center;
+  border-radius: 50%;
+  position: relative;
+  background: #e3e3e3;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+main .show-step li:first-child {
+  margin-right: 15px;
+}
+
+main .show-step li.active {
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  line-height: 30px;
+  background: #b8e986;
+}
