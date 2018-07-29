@@ -1,24 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-
-const baseUrl = 'http://localhost:3003/users'
+import Api from './Api';
 
 class Profile extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
-			user: {}
+			user: Api('get', 'conpassUsers') && Api('get', 'conpassUsers').filter(user => { return user.id === parseInt( props.match.params.id, 10 ) })[0]
 		}
-	}
-
-	componentWillMount() {
-		const self = this;
-
-		axios['get'](`${baseUrl}/${this.props.match.params.id}`)
-			.then(resp => {
-				self.setState({ user: resp.data });
-			})
 	}
 
 	setUserImage = (event) => {
@@ -31,10 +20,9 @@ class Profile extends Component {
 					user: {...self.state.user, image: e.target.result}
 				});
 
-				axios['put'](`${baseUrl}/${self.state.user.id}`, self.state.user)
-					.then(resp => {
-						self.setState({ user: resp.data });
-					})
+				let users = Api('get', 'conpassUsers').filter(user => { return user.id !== parseInt( self.props.match.params.id, 10 ) });
+				users.push( self.state.user );
+				Api('update', 'conpassUsers', users);
 			}
 		});
 

@@ -1,26 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import Api from './Api';
 
-const baseUrl = 'http://localhost:3003/users'
 const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 class Users extends Component {
   constructor() {
 		super();
 		this.state = {
-			users: []
+			users: Api('get', 'conpassUsers')
 		}
 	}
-
-	componentWillMount() {
-		const self = this;
-
-		axios['get'](baseUrl)
-			.then(resp => {
-				self.setState({ users: resp.data });
-			})
-  }
   
   render() {
     return (

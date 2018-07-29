@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import Api from './Api';
 
-const baseUrl = 'http://localhost:3003/users'
 const initialState = {
-	user: { name: '', lname: '', compa: '', mail: '', pass: '', rpass: '', date: new Date()}
+	user: { id: Math.floor(Math.random() * 10000000000), name: '', lname: '', compa: '', mail: '', pass: '', rpass: '', date: new Date()}
 }
+
 const validateField = { name: true, lname: true, compa: true, mail: true, pass: true, rpass: true, validMail: true, correctPass: true}
 
 class Register extends Component {
@@ -15,15 +15,16 @@ class Register extends Component {
 	}
 
 	save() {
-		const self = this;
 		const user = this.state.user
-		const method = user.id ? 'put' : 'post'
-		const url = user.id ? `${baseUrl}/${user.id}` : baseUrl
-		axios[method](url, user)
-			.then(resp => {
-				self.setState({ user: resp.data });
-				self.props.history.push(`/profile/${this.state.user.id}`)
-			})
+		let users = Api('get', 'conpassUsers');
+
+		if( users.filter(saveUser => { return saveUser.id === user.id }).length > 0 ) {
+			users = users.filter(saveUser => { return saveUser.id !== user.id });
+		}
+
+		users.push( user );
+		Api('update', 'conpassUsers', users);
+		this.props.history.push(`/profile/${this.state.user.id}`)
 	}
 
 	updateField(event) {
